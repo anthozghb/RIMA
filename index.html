@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rima — Restaurant et Traiteur Libanais à Chaville (92370)</title>
+<meta name="description" content="Rima, restaurant et traiteur libanais à Chaville. Cuisine libanaise authentique, plats à emporter et traiteur pour vos événements. Réservation au 06 75 76 60 72.">
+<meta name="keywords" content="restaurant libanais Chaville, traiteur libanais 92370, cuisine libanaise, mezze, Chaville, Sèvres, Ville-d'Avray">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.rima-traiteur.fr/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Rima — Restaurant et Traiteur Libanais à Chaville">
+<meta property="og:description" content="Cuisine libanaise authentique à Chaville. Sur place, à emporter et service traiteur.">
+<meta property="og:image" content="images/hero.jpg">
+<meta property="og:locale" content="fr_FR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================================ -->
+<!-- SEO LOCAL — Schema.org JSON-LD : Restaurant                  -->
+<!-- ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Rima - Restaurant et Traiteur Libanais",
+  "image": "images/hero.jpg",
+  "@id": "https://www.rima-traiteur.fr/",
+  "url": "https://www.rima-traiteur.fr/",
+  "telephone": "+33675766072",
+  "servesCuisine": ["Libanaise", "Traiteur libanais", "Méditerranéenne"],
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1004 Av. Roger Salengro",
+    "addressLocality": "Chaville",
+    "postalCode": "92370",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "12:00",
+      "closes": "23:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday"],
+      "opens": "11:30",
+      "closes": "15:00"
+    }
+  ],
+  "menu": "https://deliveroo.fr/fr/menu/paris/sevres-ville-davray/rima-traiteur-libanais",
+  "acceptsReservations": "True",
+  "hasMenu": "https://deliveroo.fr/fr/menu/paris/sevres-ville-davray/rima-traiteur-libanais"
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HEADER / NAVIGATION                                            -->
+<!-- ============================================================ -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 32" width="34" height="22"><path d="M2 30 C2 14, 14 2, 24 2 C34 2, 46 14, 46 30" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </span>
+      <span class="brand__name">Rima</span>
+    </a>
+    <!-- Navigation DESKTOP : liens horizontaux, visibles uniquement sur
+         grand écran. Aucun rôle sur mobile (masquée en CSS). -->
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <a href="#histoire">La Maison</a>
+      <a href="#carte">La Carte</a>
+      <a href="#traiteur">Traiteur</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a id="header-phone" href="tel:0675766072" class="header-call">
+      <span class="header-call__label">Réserver</span>
+      <span class="header-call__number">06 75 76 60 72</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- PANNEAU DE NAVIGATION MOBILE — placé HORS du header pour que     -->
+<!-- son position:fixed se réfère toujours au viewport, jamais à un   -->
+<!-- ancêtre transformé/filtré. C'est la clé de sa fiabilité.         -->
+<!-- ============================================================ -->
+<div class="nav-scrim" id="nav-scrim" hidden></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden>
+  <a href="#histoire">La Maison</a>
+  <a href="#carte">La Carte</a>
+  <a href="#traiteur">Traiteur</a>
+  <a href="#avis">Avis</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:0675766072" class="mobile-nav__call" id="mobile-nav-phone" aria-label="Réserver par téléphone">
+    <svg class="mobile-nav__call-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M3 5c0-1.1.9-2 2-2h2.3c.5 0 .9.3 1 .8l1 4a1 1 0 0 1-.3 1L7.5 10.3a13 13 0 0 0 6.2 6.2l1.5-1.5a1 1 0 0 1 1-.3l4 1c.5.1.8.5.8 1V19c0 1.1-.9 2-2 2h-1C9.6 21 3 14.4 3 6V5Z"/>
+    </svg>
+    <span class="mobile-nav__call-text">
+      <span class="mobile-nav__call-label">Réserver</span>
+      <span class="mobile-nav__call-number" id="mobile-nav-phone-number">06 75 76 60 72</span>
+    </span>
+  </a>
+</nav>
+
+<main id="top">
+
+  <!-- ============================================================ -->
+  <!-- HERO                                                           -->
+  <!-- ============================================================ -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="images/hero.jpg" alt="Plat signature du restaurant libanais Rima à Chaville" loading="eager">
+      <div class="hero__veil"></div>
+    </div>
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--light">Chaville · 92370</p>
+      <h1 class="hero__title">Rima</h1>
+      <p class="hero__subtitle">Restaurant &amp; Traiteur Libanais</p>
+      <p class="hero__tagline">Une table levantine, fidèle au geste et au goût du Liban</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Réserver une table</a>
+        <a href="#carte" class="btn btn--ghost-light">Découvrir la carte</a>
+      </div>
+    </div>
+    <div class="hero__hours" id="hero-hours">
+      <span class="hero__hours-dot" id="hero-status-dot" aria-hidden="true"></span>
+      <span id="hero-status-text">Horaires d'ouverture</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HISTOIRE / LA MAISON                                          -->
+  <!-- ============================================================ -->
+  <section class="section histoire" id="histoire">
+    <div class="container histoire__grid">
+      <div class="histoire__text">
+        <p class="eyebrow">La Maison</p>
+        <h2 class="section-title">L'art du mezze, transmis avec soin</h2>
+        <p class="lede">Chez Rima, chaque plat raconte une recette de famille : celle des longues tablées libanaises, où l'on partage avant de se servir. Légumineuses, herbes fraîches, agneau mariné et pain chaud composent une cuisine généreuse, pensée pour Chaville comme elle le serait pour Beyrouth.</p>
+        <p>Sur place, à emporter ou en traiteur pour vos événements : la même exigence d'authenticité, du marché à l'assiette.</p>
+      </div>
+      <div class="histoire__arch">
+        <div class="arch-frame">
+          <img src="images/ambiance1.jpg" alt="Intérieur chaleureux du restaurant Rima à Chaville" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="divider" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LA CARTE                                                       -->
+  <!-- ============================================================ -->
+  <section class="section carte" id="carte">
+    <div class="container">
+      <p class="eyebrow">La Carte</p>
+      <h2 class="section-title">Mezze, grillades &amp; douceurs</h2>
+      <p class="lede">L'ensemble de nos plats, du hors-d'œuvre au dessert — la même carte que sur place.</p>
+
+      <button type="button" class="carte__toggle" id="carte-toggle" aria-expanded="false" aria-controls="carte-panel">
+        <span class="carte__toggle-label" id="carte-toggle-label">Afficher la carte</span>
+        <svg class="carte__toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="carte__panel" id="carte-panel" hidden>
+        <div class="carte__filters" id="carte-filters" role="tablist" aria-label="Filtrer la carte par catégorie">
+          <!-- Boutons de filtre injectés dynamiquement par script.js -->
+        </div>
+
+        <div class="carte__menu" id="carte-menu">
+          <!-- Plats injectés dynamiquement par script.js, groupés par catégorie -->
+        </div>
+
+        <p class="carte__note">Prix sujets à variation selon le marché. Carte également disponible sur Deliveroo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TRAITEUR                                                       -->
+  <!-- ============================================================ -->
+  <section class="section traiteur" id="traiteur">
+    <div class="container traiteur__grid">
+      <div class="traiteur__arch">
+        <div class="arch-frame">
+          <img src="images/ambiance2.jpg" alt="Plateau traiteur libanais Rima pour événements à Chaville" loading="lazy">
+        </div>
+      </div>
+      <div class="traiteur__text">
+        <p class="eyebrow">Traiteur</p>
+        <h2 class="section-title">Recevez à la libanaise</h2>
+        <p class="lede">Fêtes de famille, réceptions d'entreprise, anniversaires : Rima compose pour vous des plateaux de mezze et des buffets chauds pensés pour le partage.</p>
+        <p>Devis personnalisé selon le nombre de convives et l'occasion — contactez-nous pour en discuter.</p>
+        <a id="traiteur-phone" href="tel:0675766072" class="btn btn--outline">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- AVIS — preuve sociale                                          -->
+  <!-- ============================================================ -->
+  <section class="section avis" id="avis">
+    <div class="container">
+      <p class="eyebrow eyebrow--center">Avis</p>
+      <h2 class="section-title section-title--center">Ce que l'on dit de Rima</h2>
+      <div class="avis__grid" id="avis-grid">
+        <figure class="avis__card">
+          <blockquote>« Une cuisine libanaise généreuse et parfumée, on s'y croirait à Beyrouth. »</blockquote>
+          <figcaption>— Client Google</figcaption>
+        </figure>
+        <figure class="avis__card">
+          <blockquote>« Le traiteur a sublimé notre réception, mezze impeccables et service attentionné. »</blockquote>
+          <figcaption>— Client Google</figcaption>
+        </figure>
+        <figure class="avis__card">
+          <blockquote>« Un accueil chaleureux et des grillades parfaitement cuites. Notre adresse à Chaville. »</blockquote>
+          <figcaption>— Client Google</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT / HORAIRES / MAP                                      -->
+  <!-- ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section-title">Nous trouver</h2>
+
+        <dl class="info-list">
+          <div class="info-list__row">
+            <dt>Adresse</dt>
+            <dd><a id="address-link" href="https://www.google.com/maps/search/?api=1&query=1004%20Av.%20Roger%20Salengro%2C%2092370%20Chaville" target="_blank" rel="noopener">1004 Av. Roger Salengro, 92370 Chaville</a></dd>
+          </div>
+          <div class="info-list__row">
+            <dt>Téléphone</dt>
+            <dd><a id="contact-phone" href="tel:0675766072">06 75 76 60 72</a></dd>
+          </div>
+          <div class="info-list__row info-list__row--hours">
+            <dt>Horaires</dt>
+            <dd>
+              <ul class="hours-list" id="hours-list">
+                <li><span>Lundi</span><span>Fermé</span></li>
+                <li><span>Mardi — Samedi</span><span>12:00 – 23:00</span></li>
+                <li><span>Dimanche</span><span>11:30 – 15:00</span></li>
+              </ul>
+            </dd>
+          </div>
+          <!-- Réseaux sociaux — injectés dynamiquement depuis l'onglet
+               "Contact" du Sheet (clés "Lien Instagram", "Lien TikTok").
+               La ligne entière reste masquée si aucun réseau n'est
+               renseigné. -->
+          <div class="info-list__row info-list__row--social" id="contact-social-row" hidden>
+            <dt>Suivez-nous</dt>
+            <dd>
+              <div class="contact-social" id="contact-social">
+                <a class="contact-social__link" id="contact-instagram" href="#" target="_blank" rel="noopener" aria-label="Suivre Rima sur Instagram" hidden>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+                  </svg>
+                </a>
+                <a class="contact-social__link" id="contact-tiktok" href="#" target="_blank" rel="noopener" aria-label="Suivre Rima sur TikTok" hidden>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <path d="M16.5 3c.3 2.1 1.6 3.6 3.5 3.9v2.4c-1.2.1-2.4-.2-3.5-.8v5.7c0 3.1-2.3 5.3-5.2 5.3-2.7 0-4.9-2-4.9-4.7 0-2.9 2.5-5 5.6-4.5v2.5c-.4-.1-.8-.2-1.2-.2-1.3 0-2.3 1-2.3 2.2 0 1.3 1 2.2 2.2 2.2 1.4 0 2.4-1 2.4-2.7V3h2.9Z"/>
+                  </svg>
+                </a>
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="contact__map">
+        <iframe
+          src="https://maps.google.com/maps?q=1004%20Av.%20Roger%20Salengro%2C%2092370%20Chaville&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localisation de Rima, restaurant libanais à Chaville">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                         -->
+<!-- ============================================================ -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="brand brand--footer">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 32" width="28" height="18"><path d="M2 30 C2 14, 14 2, 24 2 C34 2, 46 14, 46 30" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </span>
+      <span class="brand__name">Rima</span>
+    </div>
+    <!-- Réseaux sociaux du pied de page — injectés dynamiquement depuis
+         l'onglet "Contact" du Sheet (clés "Lien Instagram" / "Lien
+         TikTok"). Chaque icône reste invisible tant que son lien n'est
+         pas fourni. -->
+    <div class="site-footer__socials">
+      <a id="footer-instagram" class="site-footer__social" href="#" target="_blank" rel="noopener" aria-label="Suivre Rima sur Instagram" hidden>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a id="footer-tiktok" class="site-footer__social" href="#" target="_blank" rel="noopener" aria-label="Suivre Rima sur TikTok" hidden>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M16.5 3c.3 2.1 1.6 3.6 3.5 3.9v2.4c-1.2.1-2.4-.2-3.5-.8v5.7c0 3.1-2.3 5.3-5.2 5.3-2.7 0-4.9-2-4.9-4.7 0-2.9 2.5-5 5.6-4.5v2.5c-.4-.1-.8-.2-1.2-.2-1.3 0-2.3 1-2.3 2.2 0 1.3 1 2.2 2.2 2.2 1.4 0 2.4-1 2.4-2.7V3h2.9Z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="site-footer__address">1004 Av. Roger Salengro, 92370 Chaville — <a id="footer-phone" href="tel:0675766072">06 75 76 60 72</a></p>
+    <p class="site-footer__copy">&copy; <span id="footer-year"></span> Rima — Restaurant et Traiteur Libanais. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- BOUTON FLOTTANT — Commander en ligne (Deliveroo / UberEats)   -->
+<!-- Reste totalement invisible si aucun lien n'est fourni          -->
+<!-- ============================================================ -->
+<div id="float-order" class="float-order" hidden>
+  <!-- Carte d'alerte flottante — injectée dynamiquement si "Message
+       d'alerte" n'est pas vide dans le Google Sheet. S'empile au-dessus
+       du bouton Commander, fermable, avec défilement interne si le
+       message est long. -->
+  <div id="alert-card" class="alert-card" hidden role="status">
+    <div class="alert-card__header">
+      <span class="alert-card__title">Information</span>
+      <button id="alert-card-close" class="alert-card__close" aria-label="Fermer le message">&times;</button>
+    </div>
+    <div class="alert-card__body">
+      <p id="alert-card-text"></p>
+    </div>
+  </div>
+
+  <button id="float-order-toggle" class="float-order__toggle" aria-expanded="false" aria-controls="float-order-menu">
+    <span class="float-order__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M3 9h18l-1.5 9a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 9Z"/>
+        <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+      </svg>
+    </span>
+    <span class="float-order__label">Commander</span>
+  </button>
+  <div id="float-order-menu" class="float-order__menu" hidden></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DIAGNOSTIC SHEET — visible UNIQUEMENT avec ?debug=1 dans l'URL -->
+<!-- Permet de vérifier en un coup d'œil si le Sheet se charge      -->
+<!-- correctement, sans toucher au code ni ouvrir la console.       -->
+<!-- ============================================================ -->
+<div id="sheet-diagnostic" class="sheet-diagnostic" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
