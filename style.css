@@ -4,6 +4,18 @@
    Palette : olive profond / lin chaud / laiton / terre cuite
    ================================================================ */
 
+/* Polices AUTO-HÉBERGÉES (fonts/) — aucune requête vers Google (RGPD) */
+@font-face { font-family: 'Fraunces'; src: url('fonts/fraunces-latin-300-normal.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('fonts/fraunces-latin-300-italic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('fonts/fraunces-latin-500-normal.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('fonts/fraunces-latin-600-normal.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('fonts/fraunces-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Marcellus'; src: url('fonts/marcellus-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/inter-latin-500-normal.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/inter-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
 :root {
   /* Couleurs */
   --c-bg:        #F5EFE3; /* lin chaud */
@@ -1226,4 +1238,102 @@ body.float-widgets-suspended .float-order {
   font-size: 0.68rem;
   color: #888;
   border-top: 1px solid #333;
+}
+
+/* ----------------------------------------------------------------
+   Conformité — façade carte, note avis, mentions légales
+   ---------------------------------------------------------------- */
+
+.contact__map { position: relative; }
+
+.map-consent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 360px;
+  padding: 32px;
+  text-align: center;
+  background: var(--c-cream);
+}
+.map-consent__title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+.map-consent__text {
+  margin: 0;
+  max-width: 340px;
+  font-size: 0.9rem;
+  color: var(--c-ink-soft);
+}
+.map-consent__btn {
+  margin-top: 6px;
+  background: var(--c-ink);
+  color: var(--c-cream);
+  border: none;
+  padding: 13px 26px;
+  border-radius: 30px;
+  font-family: var(--f-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.map-consent__btn:hover { background: var(--c-ink-soft); }
+.map-consent__alt {
+  font-size: 0.85rem;
+  color: var(--c-olive);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.avis__note {
+  margin: 34px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(245, 239, 227, 0.72);
+}
+
+.site-footer__legal {
+  width: 100%;
+  max-width: 760px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  text-align: left;
+}
+.site-footer__legal summary {
+  cursor: pointer;
+  text-align: center;
+  color: rgba(245, 239, 227, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  list-style: none;
+}
+.site-footer__legal summary::-webkit-details-marker { display: none; }
+.site-footer__legal summary:hover { color: var(--c-brass-lt); }
+.site-footer__legal-body {
+  margin-top: 14px;
+  line-height: 1.6;
+  color: rgba(245, 239, 227, 0.75);
+}
+.site-footer__legal-body p { margin: 0 0 10px; }
+.site-footer__legal-body a { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .map-consent { min-height: 280px; }
+}
+
+.site-footer__mentions {
+  margin: 0;
+  max-width: 620px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: rgba(245, 239, 227, 0.72);
 }

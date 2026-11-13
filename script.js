@@ -12,7 +12,7 @@
   'use strict';
 
   /* ID du Google Sheet (extrait de l'URL fournie) */
-  var SHEET_ID = '10g4tuhxuiV3IHFK8KYHrstUJnl9W32TwlhqWpGO7Ldc';
+  var SHEET_ID = '1UHmbFaNHDlXk9_2HsMlYu0tHrPZP-V4FMpLHv45L248';
 
   /* Noms d'onglets TOLÉRÉS, par ordre de préférence. Le code essaie
      chaque nom jusqu'à en trouver un qui répond, ce qui rend le site
@@ -120,6 +120,7 @@
     initOpeningStatus();
     initDiagnosticWidget();
     initCarteToggle();
+    initMapConsent();
 
     /* Affiche immédiatement la carte statique (MENU_DATA en dur) pour que
        la page ne soit jamais vide en attendant le réseau, puis la
@@ -489,10 +490,11 @@
           return;
         }
         renderAvis(avis);
+        showAvisSection();
         setSyncStatus('avis', 'ok', avis.length + ' avis (onglet « ' + result.sheetName + ' »).');
       })
       .catch(function (err) {
-        /* Echec : les 3 avis en dur dans le HTML restent affichés. */
+        /* Echec : la section Avis reste masquée (aucun avis inventé en dur). */
         console.warn('Rima — aucun onglet d\'avis reconnu (' + SHEET_NAMES_AVIS.join(', ') + ') :', err.message || err);
         setSyncStatus('avis', 'fail', 'Aucun onglet reconnu (' + SHEET_NAMES_AVIS.join(', ') + ') — avis en dur conservés.');
       });
@@ -594,11 +596,11 @@
       var quote = a.text.trim();
       /* Ajoute des guillemets français si l'auteur n'en a pas mis. */
       if (!/^[«"']/.test(quote)) { quote = '« ' + quote + ' »'; }
-      var author = a.author ? a.author.trim() : 'Client';
+      var author = a.author ? a.author.trim() : '';
       return (
         '<figure class="avis__card">' +
           '<blockquote>' + escapeHtml(quote) + '</blockquote>' +
-          '<figcaption>— ' + escapeHtml(author) + '</figcaption>' +
+          (author ? '<figcaption>— ' + escapeHtml(author) + '</figcaption>' : '') +
         '</figure>'
       );
     }).join('');
@@ -1265,6 +1267,27 @@
           carteSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    });
+  }
+
+  /* Révèle la section Avis et ses liens de navigation (masqués par défaut). */
+  function showAvisSection() {
+    var section = document.getElementById('avis');
+    if (section) { section.hidden = false; }
+    document.querySelectorAll('[data-avis-link]').forEach(function (a) { a.hidden = false; });
+  }
+
+  /* Carte Google Maps chargée uniquement au clic (aucun cookie tiers
+     sans action volontaire du visiteur — recommandation CNIL). */
+  function initMapConsent() {
+    var btn = document.getElementById('map-consent-btn');
+    var facade = document.getElementById('map-consent');
+    var iframe = document.getElementById('map-iframe');
+    if (!btn || !iframe) { return; }
+    btn.addEventListener('click', function () {
+      iframe.setAttribute('src', iframe.getAttribute('data-src'));
+      iframe.hidden = false;
+      if (facade) { facade.remove(); }
     });
   }
 

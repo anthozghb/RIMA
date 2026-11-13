@@ -7,7 +7,7 @@
 <meta name="description" content="Rima, restaurant et traiteur libanais à Chaville. Cuisine libanaise authentique, plats à emporter et traiteur pour vos événements. Réservation au 06 75 76 60 72.">
 <meta name="keywords" content="restaurant libanais Chaville, traiteur libanais 92370, cuisine libanaise, mezze, Chaville, Sèvres, Ville-d'Avray">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.rima-traiteur.fr/">
+<link rel="canonical" href="https://www.rima-restaurant.fr/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="restaurant">
@@ -15,10 +15,6 @@
 <meta property="og:description" content="Cuisine libanaise authentique à Chaville. Sur place, à emporter et service traiteur.">
 <meta property="og:image" content="images/hero.jpg">
 <meta property="og:locale" content="fr_FR">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -31,8 +27,8 @@
   "@type": "Restaurant",
   "name": "Rima - Restaurant et Traiteur Libanais",
   "image": "images/hero.jpg",
-  "@id": "https://www.rima-traiteur.fr/",
-  "url": "https://www.rima-traiteur.fr/",
+  "@id": "https://www.rima-restaurant.fr/",
+  "url": "https://www.rima-restaurant.fr/",
   "telephone": "+33675766072",
   "servesCuisine": ["Libanaise", "Traiteur libanais", "Méditerranéenne"],
   "priceRange": "€€",
@@ -83,7 +79,7 @@
       <a href="#histoire">La Maison</a>
       <a href="#carte">La Carte</a>
       <a href="#traiteur">Traiteur</a>
-      <a href="#avis">Avis</a>
+      <a href="#avis" data-avis-link hidden>Avis</a>
       <a href="#contact">Contact</a>
     </nav>
     <a id="header-phone" href="tel:0675766072" class="header-call">
@@ -106,7 +102,7 @@
   <a href="#histoire">La Maison</a>
   <a href="#carte">La Carte</a>
   <a href="#traiteur">Traiteur</a>
-  <a href="#avis">Avis</a>
+  <a href="#avis" data-avis-link hidden>Avis</a>
   <a href="#contact">Contact</a>
   <a href="tel:0675766072" class="mobile-nav__call" id="mobile-nav-phone" aria-label="Réserver par téléphone">
     <svg class="mobile-nav__call-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -190,7 +186,7 @@
           <!-- Plats injectés dynamiquement par script.js, groupés par catégorie -->
         </div>
 
-        <p class="carte__note">Prix sujets à variation selon le marché. Carte également disponible sur Deliveroo.</p>
+        <p class="carte__note">Prix nets TTC, service compris. La liste des allergènes présents dans nos plats est disponible sur simple demande auprès de notre personnel. Prix sujets à variation selon le marché — carte également disponible sur Deliveroo.</p>
       </div>
     </div>
   </section>
@@ -218,24 +214,16 @@
   <!-- ============================================================ -->
   <!-- AVIS — preuve sociale                                          -->
   <!-- ============================================================ -->
-  <section class="section avis" id="avis">
+  <section class="section avis" id="avis" hidden>
     <div class="container">
       <p class="eyebrow eyebrow--center">Avis</p>
       <h2 class="section-title section-title--center">Ce que l'on dit de Rima</h2>
       <div class="avis__grid" id="avis-grid">
-        <figure class="avis__card">
-          <blockquote>« Une cuisine libanaise généreuse et parfumée, on s'y croirait à Beyrouth. »</blockquote>
-          <figcaption>— Client Google</figcaption>
-        </figure>
-        <figure class="avis__card">
-          <blockquote>« Le traiteur a sublimé notre réception, mezze impeccables et service attentionné. »</blockquote>
-          <figcaption>— Client Google</figcaption>
-        </figure>
-        <figure class="avis__card">
-          <blockquote>« Un accueil chaleureux et des grillades parfaitement cuites. Notre adresse à Chaville. »</blockquote>
-          <figcaption>— Client Google</figcaption>
-        </figure>
+        <!-- Avis réels injectés depuis l'onglet « Avis » du Google Sheet
+             (texte exact + « Prénom N. — mois année »). Section masquée
+             tant qu'aucun avis n'est renseigné. -->
       </div>
+      <p class="avis__note">Avis extraits de la fiche Google de l'établissement, reproduits tels quels, sans contrepartie et sans procédure de vérification complémentaire. Sélection par l'établissement.</p>
     </div>
   </section>
 
@@ -294,12 +282,17 @@
       </div>
 
       <div class="contact__map">
-        <iframe
-          src="https://maps.google.com/maps?q=1004%20Av.%20Roger%20Salengro%2C%2092370%20Chaville&output=embed"
+        <div class="map-consent" id="map-consent">
+          <p class="map-consent__title">Plan d'accès</p>
+          <p class="map-consent__text">La carte est fournie par Google, qui peut déposer des cookies. Elle ne se charge qu'à votre demande.</p>
+          <button type="button" class="map-consent__btn" id="map-consent-btn">Afficher la carte</button>
+          <a class="map-consent__alt" href="https://www.google.com/maps/search/?api=1&amp;query=1004%20Av.%20Roger%20Salengro%2C%2092370%20Chaville" target="_blank" rel="noopener">Ou ouvrir dans Google Maps</a>
+        </div>
+        <iframe id="map-iframe" hidden
+          data-src="https://maps.google.com/maps?q=1004%20Av.%20Roger%20Salengro%2C%2092370%20Chaville&amp;output=embed"
           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Localisation de Rima, restaurant libanais à Chaville">
-        </iframe>
+          title="Localisation de Rima, restaurant libanais à Chaville"></iframe>
       </div>
     </div>
   </section>
@@ -337,6 +330,21 @@
     </div>
     <p class="site-footer__address">1004 Av. Roger Salengro, 92370 Chaville — <a id="footer-phone" href="tel:0675766072">06 75 76 60 72</a></p>
     <p class="site-footer__copy">&copy; <span id="footer-year"></span> Rima — Restaurant et Traiteur Libanais. Tous droits réservés.</p>
+    <p class="site-footer__mentions">L'abus d'alcool est dangereux pour la santé, à consommer avec modération. La vente d'alcool est interdite aux mineurs de moins de 18 ans.</p>
+    <details class="site-footer__legal" id="mentions-legales">
+      <summary>Mentions légales</summary>
+      <div class="site-footer__legal-body">
+        <p><strong>Éditeur du site :</strong> DUVET, SARL au capital de 5 000 €, exploitant du restaurant Rima — Siège : 1004 Av. Roger Salengro, 92370 Chaville.<br>
+        SIRET 941 712 440 00010 — RCS Nanterre — N° TVA intracommunautaire : FR13941712440<br>
+        Contact : 06 75 76 60 72 — <a href="mailto:duvet.92000@gmail.com">duvet.92000@gmail.com</a></p>
+        <p><strong>Directeur de la publication :</strong> Rima Zoghaib.</p>
+        <p><strong>Débit de boissons :</strong> licence d'exploitation déclarée auprès de la mairie de Chaville (Hôtel de ville, 1456 avenue Roger Salengro, 92370 Chaville). Boissons alcoolisées servies uniquement sur place.</p>
+        <p><strong>Hébergement :</strong> GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, États-Unis — Tél. : +1 877-448-4820.</p>
+        <p><strong>Médiation de la consommation</strong> (art. L612-1 c. conso.) : après réclamation écrite préalable restée sans réponse satisfaisante, tout consommateur peut recourir gratuitement au médiateur dont relève l'établissement : CM2C — Centre de la Médiation de la Consommation des Conciliateurs de Justice, 49 rue de Ponthieu, 75008 Paris — <a href="https://www.cm2c.net" target="_blank" rel="noopener">www.cm2c.net</a>.</p>
+        <p><strong>Données personnelles :</strong> ce site ne collecte aucune donnée personnelle : aucun cookie, aucun traceur, aucune mesure d'audience, aucun formulaire. Les polices sont hébergées sur le site même. L'hébergeur (GitHub) traite les journaux techniques de connexion strictement nécessaires au service. La carte Google Maps ne se charge qu'après votre clic ; Google peut alors déposer des cookies selon sa propre politique. Pour toute question : <a href="mailto:duvet.92000@gmail.com">duvet.92000@gmail.com</a> (réclamation possible auprès de la CNIL).</p>
+        <p><strong>Crédits :</strong> photographies fournies par l'établissement. Toute reproduction est interdite sans autorisation.</p>
+      </div>
+    </details>
   </div>
 </footer>
 
